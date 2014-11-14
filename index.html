@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>La blockchain - Bitcoin talk</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>La blockchain</h1>
+                    <!--<h2>Bitcoin talk</h2>-->
+					<p>Étudiant @ISEN_Lille</p>
+					<p><a href="http://twitter.com/RomainBouye">@RomainBouye</a></h3>
+          <aside class="notes">- je suis étuidant en informatique à l'isen.<br>
+						- Intérêt : Internet et les logiciels libres.<br>
+						- Parler du fonctionnement de Bitcoin et pourquoi les technologies intéréssantes.<br>
+						- C'est un peu techinque et je sais pas vraiment qui a<br>
+							Déjà entendu parlé de Bitcoin<br>
+							Informé<br>
+							Possède des bitcoin ?<br>
+							Payé une bière en bitcoin ? ;)<br>
+          </aside>
+				</section>
+				<section>
+					<h3>Oui mais Bitcoin c'est quoi ?</h3>
+					<p>Un protocole pour une monnaie "virtuelle" aux propriétés similaires au cash $$</p>
+					<ul class="fragment">
+						<li><p class="image-text">Transaction en argent liquide</p><img src="images/transaction-cash.svg" class="symbol"></li>
+						<li><p class="image-text">Transaction en chèque, CB, Paypal</p><img src="images/transaction-cb.svg" class="symbol"></li>
+						</li>
+					</ul>
+					<aside class="notes">
+						Proche du liquide (pas besoin d'impliquer tiers)
+					</aside>
+				</section>
+
+        <section>
+            <h2>Comment faire une cryptocurrency comme Bitcoin ?</h2>
+            <ul>
+                <li class="fragment"><p class="image-text">Rareté de la monnaie</p><img src="images/gold.svg" class="symbol"></li>
+                <li class="fragment"><p class="image-text">Aucune autorité centrale (Décentralisée)</p><img src="images/graph.svg" class="symbol"></li>
+            </ul>
+            <aside class="notes">
+                La difficuleté
+            </aside>
+        </section>
+
+        <section>
+            <h2>Rareté de la monnaie ? </h2>
+            <ul>
+                <li class="fragment"><p class="image-text">Création en "minant" avec une difficulté contrôlée</p><img src="images/mine.svg" class="symbol"></li>
+                <li class="fragment"><p class="image-text">Pas de double dépense : impossible de "copier" un Bitcoin</p><img src="images/copy-bitcoin.svg" class="symbol"></li>
+            </ul>
+            <aside class="notes">
+                La difficulté du minage limite la création<br>intéressant: Eviter la copie à l'identique<br>-> en numérique on peut tout copier parfaitement
+            </aside>
+        </section>
+
+        <section>
+            <h2>Un registre unique mais décentralisé ?</h2>
+            <p class="fragment">Un registré vérifié par tous et ouvert à tous</p>
+            <h3 class="fragment">La Blockchain</h3>
+            <aside class="notes">
+                le réseau <b>vérifie</b> en permanance qu'il est identique
+            </aside>
+        </section>
+
+				<section>
+					<p>Outil de cryptographie important :<p>
+					<h3>Les Sommes de contrôle<br>"Checksum" ou "Hash"</h3>
+					<pre class="fragment left">"information" -> 83a36ab3779f4b...<br>"informations" -> 2a98e28d4336b7...</pre>
+                    <h3 class="fragment" >Mini démo</h3>
+                    <aside class="notes">
+                        C'est une fonctione qui permet, peut importe ce qu'on donne met en entrée, on obtient un code de taille fixe en sortie.
+                        Pour vérifier l'intégrité d'un contenu on vérifie son checksum, même un infime changement modifie complètement la somme de calcul
+                    </aside>
+				</section>
+
+        <section>
+            <h3>Une chaine de blocs à validité imbriquée</h3>
+            <img src="images/blocks.png">
+					<aside class="notes">
+
+					</aside>
+        </section>
+
+        <section>
+            <h3>Mais que contient un bloc ?</h3>
+            <div class="bloc">
+                <b>Bloc</b>
+                <ul>
+                    <li>Hash du bloc précédent</li>
+                    <li>Date de création (miné)</li>
+										<li>Preuve de travail</li>
+                    <li>Difficulté de minage</li>
+                    <li>Totalité des transactions</li>
+                    <li>...</li>
+                </ul>
+            </div>
+            <div class="bloc">
+                <b>Transaction</b>
+                <ul>
+                    <li>hash</li>
+                    <li>valeur</li>
+                    <li>clé publique émetteur</li>
+                    <li>clé publique destinataire</li>
+                    <li>...</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h3>Création simultanée</h3>
+						<p>La chaine la plus longue est validée.</p>
+            <img src="images/blockchain.svg"></img>
+						<aside class="notes">
+							C'est déjà arrivé<br>
+						</aside>
+        </section>
+			<section>
+				<h3>Les Limites</h3>
+				<ul>
+					<li>Augmentation de la taille de la blockchain</li>
+					<li>Vitesse de validation des transactions</li>
+					<li>Pas anonyme</li>
+					<li>Difficulté croissante du minage</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Autres utilisations d'une blockchain<br>Les "Altcoins"</h3>
+				<ul>
+					<li>Litecoin</li>
+					<li>Namecoin</li>
+					<li>Twister</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Différents clients Bitcoin :</h3>
+				<ul>
+					<li>Bitcoin core (bitcoin-qt) : télécharge l'intégralité de la blockchain (~20Go)</li>
+					<li>Clients légers : Multibit, Application Android</li>
+				<ul>
+			</section>
+			<section>
+					<h3>Clef du succès :</h3>
+					<ul>
+						<li>Logiciel libre</li>
+						<li>Architecture décentralisée</li>
+						<li>Cryptographie</li>
+					</ul>
+			</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
